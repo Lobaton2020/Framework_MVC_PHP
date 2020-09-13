@@ -1,10 +1,9 @@
 <?php
 // modelo de ejemplo
-class UserModel extends Orm
+class User extends Orm
 {
     public function __construct()
     {
-        parent::__construct("usuario");
+        parent::__construct("users");
     }
-
 }

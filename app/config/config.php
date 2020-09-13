@@ -1,13 +1,13 @@
 <?php
 // constates de la base de datos
 define("DBHOST", "localhost");
-define("DBNAME", "");
+define("DBNAME", "testuser");
 define("DBUSER", "root");
 define("DBPASWORD", "");
 define("DBDRIVER", "mysql");
 define("DBCHARSET", "utf8");
 
-define("URL_APP", dirname(dirname(__FILE__)));
-define("URL_PROJECT", "http://localhost/Framework_MVC_PHP/");
-
-//datos de la empresa o cliente
+// datos del servidor
+define("SEPARATOR", "\\");
+define("URL_APP",  dirname(dirname(__FILE__)) . SEPARATOR);
+define("URL_PROJECT",  $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["HTTP_HOST"] . str_replace(basename($_SERVER["PHP_SELF"]), "", $_SERVER["PHP_SELF"]));

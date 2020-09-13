@@ -6,7 +6,7 @@ class MainController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->verify_authentication();
+        $this->authentication();
     }
 
     public function index()

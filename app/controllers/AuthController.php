@@ -7,14 +7,13 @@ class AuthController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->verify_authentication("SECONDARY_AUTHENTICATION");
+        $this->authentication("SECONDARY");
     }
 
     public function index()
     {
         echo "Hola Mundo!";
         echo "<a href=" . route("auth/login") . ">Iniciar Session</a>";
-
     }
 
     public function login()

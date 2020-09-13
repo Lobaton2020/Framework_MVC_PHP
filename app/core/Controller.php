@@ -24,17 +24,17 @@ class Controller extends Authentication
         ];
     }
 
-    protected function verify_authentication($type = "PRIMARY_AUTHENTICATION")
+    protected function authentication($type = "PRIMARY")
     {
         switch ($type) {
-            case "PRIMARY_AUTHENTICATION":
+            case "PRIMARY":
                 if (!$this->checkSession()) {
                     $this->redirect("auth");
                     // echo json_encode($this->httpResponseError());
                     exit();
                 }
                 break;
-            case "SECONDARY_AUTHENTICATION":
+            case "SECONDARY":
                 if ($this->checkSession()) {
                     $this->redirect("main");
                     exit();
@@ -43,31 +43,25 @@ class Controller extends Authentication
             default;
                 exit("Error param. Verify Authentication");
         }
-
     }
 
     protected function model($model)
     {
-        $model = ucwords($model) . "Model";
-        if (file_exists("../app/models/" . $model . ".php")) {
-            require_once "../app/models/" . $model . ".php";
-            return new $model();
+        $model = ucwords($model);
+        $modelPath =  URL_APP . "models" . SEPARATOR . $model . ".php";
+        if (file_exists($modelPath)) {
+            require_once $modelPath;
+            if (class_exists($model)) {
+                return new $model();
+            } else {
+                exit("Class of model not found");
+            }
         } else {
-            exit("Modelo no encontrado");
+            exit("Model not found");
         }
     }
 
-    protected function entity($entity)
-    {
 
-        $model = ucwords($entity);
-        if (file_exists("../app/models/entities/" . $entity . ".php")) {
-            require_once "../app/models/entities/" . $entity . ".php";
-            return new $entity();
-        } else {
-            exit("Entidad o VO no encontrado");
-        }
-    }
 
     protected function view($view, $params = [])
     {
@@ -82,5 +76,4 @@ class Controller extends Authentication
     {
         echo "<script>window.location.href = '" . URL_PROJECT . $path . "'</script>";
     }
-
 }
