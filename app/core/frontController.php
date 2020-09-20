@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 if (!isset($_REQUEST["c"])) {
 
     $controller = "AuthController"; // por defecto

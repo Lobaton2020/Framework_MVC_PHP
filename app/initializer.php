@@ -1,5 +1,6 @@
 <?php
 require_once "config/config.php";
+session_start();
 date_default_timezone_set("America/Bogota");
 
 $helpers  = scandir(URL_APP . "helpers");

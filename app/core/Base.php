@@ -5,8 +5,8 @@ class Base
     private static $connect = null;
     private function __construct()
     {
-        $dsn = DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";char=" . DB_CHARSET;
         try {
+            $dsn = DB_DRIVER . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";char=" . DB_CHARSET;
             $config = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ

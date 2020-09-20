@@ -19,7 +19,8 @@ class Model
         if (is_array($columns)) {
             $columns = implode(",", $columns);
         }
-        return $this->base->query("SELECT {$columns} FROM {$this->table} ORDER BY {$this->primaryKey} {$order} LIMIT {$limit}")->fetchAll();
+        return $this->base->query("SELECT {$columns} FROM {$this->table} ORDER BY {$this->primaryKey} {$order} LIMIT {$limit}")
+            ->fetchAll();
     }
 
     public function get($id, $columns = "*", $limit = 100)
