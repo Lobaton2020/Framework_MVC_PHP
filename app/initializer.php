@@ -1,10 +1,12 @@
 <?php
 require_once "config/config.php";
+date_default_timezone_set("America/Bogota");
 
-require_once "helpers/testing.php";
-require_once "helpers/views.php";
-require_once "helpers/route.php";
-require_once "helpers/redirect.php";
-
-require_once "core/Base.php";
-require_once "core/Controller.php";
+$helpers  = scandir(URL_APP . "helpers");
+unset($helpers[0], $helpers[1]);
+foreach ($helpers as $helper) {
+    include_once URL_APP . "helpers" . SEPARATOR . $helper;
+}
+spl_autoload_register(function ($class) {
+    require_once URL_APP . "core/{$class}.php";
+});

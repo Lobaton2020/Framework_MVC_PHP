@@ -1,4 +1,5 @@
 <div class="container">
+    <?php attendMessage(); ?>
     <form action="<?php echo route("main/update") ?>" method="POST">
         <input type="hidden" name="id" value="<?php echo $link->id_link_PK  ?>">
         <div class="form-group">

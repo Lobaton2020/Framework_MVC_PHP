@@ -13,8 +13,9 @@
                 <a class="nav-link" href="#">Usuario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Principal</a>
+                <a class="nav-link" href="<?php echo route("main/logout") ?>">Logout</a>
             </li>
+
         </ul>
 
     </div>

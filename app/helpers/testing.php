@@ -1,6 +1,6 @@
 <?php
 
-function d($data)
+function dd($data)
 {
     exit(var_dump($data));
 }
